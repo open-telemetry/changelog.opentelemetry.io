@@ -1,3 +1,8 @@
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";

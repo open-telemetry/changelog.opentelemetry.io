@@ -1,3 +1,21 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "plugins": [
+    "header"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "header/header": [
+      "error",
+      "block",
+      [
+        {
+          "pattern": "^\\r?\\n \\* Copyright The OpenTelemetry Authors\\r?\\n \\* SPDX-License-Identifier: Apache-2\\.0\\r?\\n $",
+          "template": "\n * Copyright The OpenTelemetry Authors\n * SPDX-License-Identifier: Apache-2.0\n "
+        }
+      ]
+    ]
+  }
 }

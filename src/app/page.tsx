@@ -1,3 +1,8 @@
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { getAllEntries } from "@/lib/store";
 import { ChangelogList } from "@/components/list";
 import { RiRssFill, RiGithubFill, RiExternalLinkLine } from "react-icons/ri";
