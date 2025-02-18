@@ -1,3 +1,8 @@
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { getStore } from "@netlify/blobs";
 import { ChangelogEntry } from "@/types/entry";
 

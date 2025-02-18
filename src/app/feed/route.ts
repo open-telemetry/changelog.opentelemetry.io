@@ -1,3 +1,8 @@
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { getAllEntries } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
