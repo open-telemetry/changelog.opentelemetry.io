@@ -140,18 +140,41 @@ const MOCK_ENTRIES: ChangelogEntry[] = [
   },
 ];
 
+// In-memory store for development
+const devStore: ChangelogEntry[] = [];
+
 export async function saveEntry(entry: ChangelogEntry) {
+  if (process.env.NODE_ENV === "development") {
+    console.log("Development mode: saving to in-memory store");
+    // Add to start of array to match the sorting in getAllEntries
+    devStore.unshift(entry);
+    return;
+  }
+
   try {
     const store = getStore("changelog-store");
     await store.setJSON(entry.id.toString(), entry);
+
+    // Trigger revalidation
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    await fetch(`${baseUrl}/api/revalidate`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.REVALIDATION_TOKEN}`,
+      },
+    });
   } catch (error) {
     console.warn("Failed to save entry:", error);
-    // In development/build, just log the entry
     console.log("Would have saved:", entry);
   }
 }
 
 export async function getAllEntries(): Promise<ChangelogEntry[]> {
+  if (process.env.NODE_ENV === "development") {
+    console.log("Development mode: reading from in-memory store");
+    return devStore.length > 0 ? devStore : MOCK_ENTRIES;
+  }
+
   try {
     const store = getStore("changelog-store");
     const list = await store.list();
@@ -169,7 +192,6 @@ export async function getAllEntries(): Promise<ChangelogEntry[]> {
     );
   } catch (error) {
     console.warn("Failed to get entries:", error);
-    // Return mock data in development/build
     return MOCK_ENTRIES;
   }
 }

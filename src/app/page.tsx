@@ -5,6 +5,7 @@
 
 import { getAllEntries } from "@/lib/store";
 import { ChangelogList } from "@/components/list";
+import { TestControls } from "@/components/test-controls";
 import { RiRssFill, RiGithubFill, RiExternalLinkLine } from "react-icons/ri";
 
 export const revalidate = 60;
@@ -52,6 +53,8 @@ export default async function Home() {
             </p>
           </div>
         </header>
+
+        {process.env.NODE_ENV === "development" && <TestControls />}
 
         <main
           id="main-content"
