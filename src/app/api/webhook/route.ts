@@ -1,3 +1,8 @@
+/*
+ * Copyright The OpenTelemetry Authors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 import { NextRequest } from "next/server";
 import { saveEntry } from "@/lib/store";
 import { ChangelogEntry } from "@/types/entry";
