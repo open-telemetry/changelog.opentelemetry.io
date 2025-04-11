@@ -12,7 +12,7 @@
     "@netlify/blobs": "^8.1.0",
     "@netlify/functions": "^3.0.0",
     "@octokit/webhooks-types": "^7.6.1",
-    "next": "14.2.28",
+    "next": "15.3.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
@@ -25,7 +25,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.28",
+    "eslint-config-next": "15.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
