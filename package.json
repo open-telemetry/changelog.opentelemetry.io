@@ -13,7 +13,7 @@
     "test:visual": "playwright test visual.spec.ts"
   },
   "dependencies": {
-    "@netlify/blobs": "^8.1.0",
+    "@netlify/blobs": "^10.0.0",
     "@netlify/functions": "^5.0.0",
     "@octokit/webhooks-types": "^7.6.1",
     "marked": "^17.0.0",
